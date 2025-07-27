@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv')
+const port = process.env.PORT || 3000;
 
 // dot env config
 dotenv.config()
@@ -40,4 +41,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
